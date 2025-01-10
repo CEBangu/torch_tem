@@ -21,15 +21,17 @@ import model as model
 
 # Set random seeds for reproducibility
 np.random.seed(0)
-torch.manual_seed(0)
+torch.manual_seed(0) #Seeds used: 2025-01-03 run0: 0 + No change to params, 2025-01-09 run0: 1 + no change to params, 2025-01-09 run1: 0 + no param change
+#2025-01-09 run2: 0 + forgetting rate changed to 0.7, #2025-01-09 run3: 0 + forgetting rate changed to 0.9, run4: 0 + forgetting rate changed to 0.8; run5: 0 + forgetting rate changed to 0.3; 2025-01-10 run0: 0 + forgetting rate changed to 0.975
+# 2025-01-10 run1: 0 + forgetting change to 1
 
 # Either load a trained model and continue training, or start afresh
-load_existing_model = False;
+load_existing_model = False
 if load_existing_model:
     # Choose which trained model to load
-    date = '2020-10-06' # 2020-07-05 run 0 for successful node agent
-    run = '2'
-    i_start = 40
+    date = '2025-01-03' # 2020-07-05 run 0 for successful node agent
+    run = '0'
+    i_start = 12999
     
     # Set all paths from existing run 
     run_path, train_path, model_path, save_path, script_path, envs_path = utils.set_directories(date, run)
@@ -42,7 +44,7 @@ if load_existing_model:
     # Load the parameters of the model
     params = torch.load(model_path + '/params_' + str(i_start) + '.pt')
     # But certain parameters (like total nr of training iterations) may need to be copied from the current set of parameters
-    new_params = {'train_it':40000}
+    new_params = {'train_it':20000}
     # Update those in params
     for key in new_params:
         params[key] = new_params[key]

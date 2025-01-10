@@ -35,7 +35,7 @@ def parameters():
       
     # -- Traning parameters
     # Number of walks to generate
-    params['train_it'] = 20000
+    params['train_it'] = 2000 #used to be 20k
     # Number of steps to roll out before backpropagation through time
     params['n_rollout'] = 20
     # Batch size: number of walks for training simultaneously
@@ -128,15 +128,15 @@ def parameters():
     # Add frequencies of object vector cell modules, if object vector cells get separate modules
     params['f_initial'] = params['f_initial'] + params['f_initial'][0:params['n_f_ovc']]
     
-    # ---- Memory parameters
+    # ---- Memory parameters #dick around with this!
     # Use common memory for generative and inference network
     params['common_memory'] = False
     # Hebbian rate of forgetting
-    params['lambda'] = 0.9999    
+    params['lambda'] = 0.9999 #was : 0.9999....  tested: 0.9, 0.7, 0.8, 0.3, 0.975, 1
     # Hebbian rate of remembering
     params['eta'] = 0.5   
     # Hebbian retrieval decay term
-    params['kappa'] = 0.8
+    params['kappa'] = 0.6 # starts at 0.8
     # Number of iterations of attractor dynamics for memory retrieval
     params['i_attractor'] = params['n_f_g']
     # Maximum iterations of attractor dynamics per frequency in inference model, so you can early stop low-frequency modules. Set to None for no early stopping
