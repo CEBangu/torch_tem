@@ -1,3 +1,11 @@
+# This is a Fork
+This is a fork of the original repository, done for Robotics at ENS (Master of Cognitive Science [Cogmaster]), in 2025, to implement and experiment with the model. 
+
+We explored the parameter space to probe the sensitivity of the model to changes in its memory matrix. We find that 
+the model is very sensitive to changes in its Hebbian learning parameters, values which are set at biologically suspicious levels. 
+
+
+# Original ReadMe:
 <!--
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
